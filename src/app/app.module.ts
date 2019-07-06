@@ -11,19 +11,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+//import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditLabelsComponent } from './components/edit-labels/edit-labels.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditLabelsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatButtonModule,
     BrowserAnimationsModule,FlexLayoutModule ,
     FormsModule ,ReactiveFormsModule,HttpClientModule,
-    MatSnackBarModule ,MatIconModule
+    MatSnackBarModule ,MatIconModule,MatMenuModule,MatDividerModule,MatSidenavModule,
+    MatListModule,MatTooltipModule,MatDialogModule
    
   ],
   providers: [],
