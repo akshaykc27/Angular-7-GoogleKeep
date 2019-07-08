@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,Validators } from '@angular/forms';
 import { MatSnackBar } from "@angular/material";
-import {HttpService} from '../../service/httpService/httpservice.service'
+import{UserService} from "../../service/user.service"
 
 import { Router} from '@angular/router';
 
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 // password:string;
 // confirmPassword:string;
 constructor(private router:Router,
-  private service: HttpService,
+  private service: UserService,
   private snackBar: MatSnackBar
   ) { }
 firstname=new FormControl("",[Validators.required]);
@@ -42,7 +42,7 @@ register(){
    "confirmPassword":this.confirmpassword.value
   };
 console.log("Register Model",registerDetails);
-this.service.post(registerDetails,"register").subscribe(
+this.service.register(registerDetails).subscribe(
   response =>{
  console.log("response in registration",response);
  this.snackBar.open("Registered successfully!!", "ok", {duration: 5000});
@@ -53,7 +53,7 @@ this.service.post(registerDetails,"register").subscribe(
     this.snackBar.open("Register failed!!", "ok", { duration: 5000 });
   }
   );
-  this.router.navigate(["login"])
+
 }catch {
   this.snackBar.open("fields cannot be empty", "ok", { duration: 5000 });
 }

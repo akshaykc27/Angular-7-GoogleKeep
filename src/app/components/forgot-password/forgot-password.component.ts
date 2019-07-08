@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../service/httpService/httpservice.service'
+import { UserService } from '../../service/user.service'
 import { Router } from '@angular/router';
 import { MatSnackBar } from "@angular/material";
 import {
@@ -16,7 +16,7 @@ import {
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private service:HttpService,
+  constructor(private service:UserService,
     private router:Router,
     public snackBar:MatSnackBar) { }
 
@@ -31,7 +31,7 @@ forgotPassword()
     "email" : this.email.value
   }
   console.log(data);
-  this.service.post(data,"forgotPassword").subscribe(
+  this.service.forgotPassword(data).subscribe(
     response => {
       console.log("response in forgotPassword", response);
       this.snackBar.open(`An Email has been sent to${this.email.value}`,"ok",{duration:5000});

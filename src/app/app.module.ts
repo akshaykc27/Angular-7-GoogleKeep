@@ -25,7 +25,9 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 //import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { EditLabelsComponent } from './components/edit-labels/edit-labels.component';
+import { TakeNoteComponent } from './components/take-note/take-note.component';
+import { DisplayNoteComponent } from './components/display-note/display-note.component';
+import { NoteComponent } from './components/note/note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { EditLabelsComponent } from './components/edit-labels/edit-labels.compon
     LoginComponent,
     ForgotPasswordComponent,
     DashboardComponent,
-    EditLabelsComponent
+    TakeNoteComponent,
+    DisplayNoteComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,

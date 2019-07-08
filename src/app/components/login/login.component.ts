@@ -6,7 +6,7 @@ import {
   Validators
 } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
-import { HttpService } from '../../service/httpService/httpservice.service'
+import { UserService } from '../../service/user.service'
 import { Router } from '@angular/router';
 import { MatSnackBar } from "@angular/material";
 
@@ -18,7 +18,7 @@ import { MatSnackBar } from "@angular/material";
 export class LoginComponent implements OnInit {
 
 
-  constructor(private service: HttpService,
+  constructor(private service: UserService,
     private router: Router,
     private snackBar: MatSnackBar) { }
 
@@ -40,14 +40,15 @@ export class LoginComponent implements OnInit {
         "password": this.password.value
       }
       console.log("login details===>", loginDetails);
-      this.service.post(loginDetails, "login").subscribe(
+      this.service.login(loginDetails).subscribe(
         response => {
           console.log("response in login", response);
           this.snackBar.open('Login Successful!!', 'ok', { duration: 5000 });
+          this.router.navigate(["dashboard"])
         },
         error => {
           console.log("Error in login", error);
-          this.snackBar.open("login failed!!", "ok", { duration: 5000 });
+          this.snackBar.open("login failed!Please check your Username or Password and Try Again", "ok", { duration: 5000 });
         }
       )
     } catch{
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
   forgotPassword() {
     this.router.navigate(["forgotPassword"])
   }
-  dashboard() {
-    this.router.navigate(["dashboard"])
+  register() {
+    this.router.navigate(["register"])
   }
 }
