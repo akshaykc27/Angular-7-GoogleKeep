@@ -1,0 +1,15 @@
+<div fxLayout="row" class="row">
+  <div>
+    <input matInput class="text" [formControl]="title">
+  </div>
+</div>
+  <div>
+    <input matInput class="text" [formControl]="description">
+  </div>
+  <div fxLayout="row">
+    <button (click)=updateNotes(card) (click)="onNoClick()" mat-button
+      style="margin-top:20px;margin-left:120px;font-family:Roboto,Arial,sans-serif;font-weight: bold">
+      Close</button>
+
+  </div>
+

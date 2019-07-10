@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
-  FormGroupDirective,
-  NgForm,
   Validators
 } from "@angular/forms";
-import { ErrorStateMatcher } from "@angular/material/core";
 import { UserService } from '../../service/user.service'
 import { Router } from '@angular/router';
 import { MatSnackBar } from "@angular/material";
@@ -16,6 +13,7 @@ import { MatSnackBar } from "@angular/material";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  result:any;
 
 
   constructor(private service: UserService,
@@ -42,7 +40,14 @@ export class LoginComponent implements OnInit {
       console.log("login details===>", loginDetails);
       this.service.login(loginDetails).subscribe(
         response => {
+          this.result= response;
           console.log("response in login", response);
+          localStorage.setItem('token',this.result.token.token);
+          localStorage.setItem('userId',this.result.message[0]._id);
+          localStorage.setItem('firstname',this.result.message[0].firstname);
+          localStorage.setItem('lastname',this.result.message[0].lastname);
+          localStorage.setItem('email',this.result.message[0].email);
+           
           this.snackBar.open('Login Successful!!', 'ok', { duration: 5000 });
           this.router.navigate(["dashboard"])
         },

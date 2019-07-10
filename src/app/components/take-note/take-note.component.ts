@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { UserService } from '../../service/user.service';
+import { NoteService } from '../../service/noteServices/note.service';
 import { } from '@angular/router'
 
 @Component({
@@ -15,7 +15,7 @@ export class TakeNoteComponent implements OnInit {
 
   @Output() messageEvent = new EventEmitter<any>()
 
-  constructor(private service: UserService) { }
+  constructor(private service: NoteService) { }
 
   ngOnInit() {
   }
@@ -33,7 +33,7 @@ export class TakeNoteComponent implements OnInit {
     this.service.addNotes(note).subscribe(
       response => {
         console.log("response after adding", response);
-        this.messageEvent.emit("response")
+        this.messageEvent.emit()
       },
       error => {
         console.log("error while adding notes", error);

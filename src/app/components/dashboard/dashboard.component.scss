@@ -9,6 +9,7 @@
 }
 .sideNavMenu{
     margin-top: 10px;
+    
 }
 .mat-icon-button {
     margin-left: 20px;
@@ -38,6 +39,10 @@
 }
 .sidenav-container {
     flex: 1;
+    margin: 0%
+}
+.accountName{
+    margin-left:10px
 }
 .editLabels{
     margin-left: 25px
@@ -46,7 +51,9 @@
     margin-left: 25px
 }
 .reminders{
-    margin-left: 25px
+    margin-left: 25px;
+    margin-right: 35px
+
 }
 .labels{
     margin-top:1px;
@@ -66,4 +73,7 @@
 .link{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: black;
+  }
+  ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    background-color:transparent
   }

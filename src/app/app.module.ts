@@ -25,9 +25,12 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 //import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { TakeNoteComponent } from './components/take-note/take-note.component';
 import { DisplayNoteComponent } from './components/display-note/display-note.component';
 import { NoteComponent } from './components/note/note.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { IconComponent } from './components/icon/icon.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,9 @@ import { NoteComponent } from './components/note/note.component';
     DashboardComponent,
     TakeNoteComponent,
     DisplayNoteComponent,
-    NoteComponent
+    NoteComponent,
+    DialogComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,7 @@ import { NoteComponent } from './components/note/note.component';
     BrowserAnimationsModule,FlexLayoutModule ,
     FormsModule ,ReactiveFormsModule,HttpClientModule,
     MatSnackBarModule ,MatIconModule,MatMenuModule,MatDividerModule,MatSidenavModule,
-    MatListModule,MatTooltipModule,MatDialogModule
+    MatListModule,MatTooltipModule,MatDialogModule,MatAutocompleteModule
    
   ],
   providers: [],

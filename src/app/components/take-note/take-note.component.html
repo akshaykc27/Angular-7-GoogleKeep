@@ -1,13 +1,13 @@
 <div fxLayout="row" fxLayoutAlign="center center" style="margin-top:30px">
     <mat-card fxFlex="45">
       <div *ngIf="show">
-        <input class="title" [(ngModel)]="title" matInput placeholder="Title">
+        <input autocomplete="off" class="title" [(ngModel)]="title" matInput placeholder="Title">
       </div>
       <div (click)="show=true">
-        <input [(ngModel)]="description" class="takenote" matInput placeholder="Take a note..">
+        <input autocomplete="off" [(ngModel)]="description" class="takenote" matInput placeholder="Take a note..">
       </div>
       <div fxLayout="row" *ngIf="show">
-        <!-- <app-icon> </app-icon> -->
+        <app-icon> </app-icon>
         <button (click)="show=false" (click)=addNotes() mat-button
           style="margin-top:20px;margin-left:220px;font-family:Roboto,Arial,sans-serif;font-weight: bold">Close</button>
       </div>

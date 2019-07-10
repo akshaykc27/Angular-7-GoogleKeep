@@ -22,9 +22,4 @@ export class UserService {
      console.log("in forgotPassword user service");
      return this.http.post("forgotPassword",data);
    }
-
-   addNotes(data){
-     console.log("in addNotes service");
-     return this.http.post("addNotes",data)
-   }
 }

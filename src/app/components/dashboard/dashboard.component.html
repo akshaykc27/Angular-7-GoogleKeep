@@ -22,10 +22,10 @@
     <button mat-icon-button matTooltip="Apps">
       <mat-icon class="apps">apps</mat-icon>
     </button>
-    <button mat-mini-fab [matMenuTriggerFor]="Menu" color="primary" class="menu">A</button>
+    <button mat-mini-fab [matMenuTriggerFor]="Menu" color="primary" class="menu">{{firstLetter}}</button>
     <mat-menu #Menu="matMenu">
-      <button mat-mini-fab color="primary">A</button>
-      <span class="accountName">Akshay KC</span>
+      <button mat-mini-fab color="primary">{{firstLetter}}</button>
+      <span class="accountName">{{firstname}} {{lastname}}</span>
     </mat-menu>
   </div>
   <mat-divider></mat-divider>
@@ -33,11 +33,11 @@
   <!------------------------ side Navigator  --------------------->
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #snav [mode]="side" opened>
-      <mat-nav-list>
+    <mat-sidenav #snav [mode]="side" >
+      <mat-nav-list >
         <a mat-list-item class="link" (click)="openNotes()" fxLayout="row" fxLayoutGap="10px">
-          <mat-icon> lightbulb_outline </mat-icon>
-          <span class="notes">Notes</span>
+          <mat-icon > lightbulb_outline </mat-icon>
+          <span  class="notes">Notes</span>
         </a>
         <a mat-list-item class="link" (click)="openReminders()">
           <mat-icon>notifications_none</mat-icon>

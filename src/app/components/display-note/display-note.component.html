@@ -1,3 +1,13 @@
-<p>
-  display-note works!
-</p>
+<div class="center" fxLayoutAlign="center center" fxLayoutGap="10px">
+  <div *ngFor="let data of allCards" >
+    <mat-card style="margin-top:50px;">
+    <div fxLayout="row">
+      {{data.title}}
+    </div>
+    <div class="description" fxLayout="row" >
+        {{data.description}}
+    </div>
+    <app-icon> </app-icon>
+    </mat-card>
+  </div>
+</div>
