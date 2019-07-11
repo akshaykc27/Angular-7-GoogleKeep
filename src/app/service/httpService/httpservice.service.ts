@@ -32,5 +32,22 @@ dbUrl=environment.url
     return this.http.get(this.dbUrl+url,httpOptions)
   }
 
+  put(url,data){
+    const httpOptions ={
+      headers : new HttpHeaders({
+        token : localStorage.getItem('token'),
+      })
+    }
+      return this.http.put(this.dbUrl+url,data,httpOptions)
+  }
+
+  delete(url,data){
+    // const httpOptions ={
+    //   headers : new HttpHeaders({
+    //     token : localStorage.getItem('token'),
+    //   })
+    // }
+      return this.http.delete(this.dbUrl+url,data)
+  }
 
 }

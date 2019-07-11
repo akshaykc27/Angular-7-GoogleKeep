@@ -23,14 +23,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-//import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { TakeNoteComponent } from './components/take-note/take-note.component';
 import { DisplayNoteComponent } from './components/display-note/display-note.component';
 import { NoteComponent } from './components/note/note.component';
-import { DialogComponent } from './components/dialog/dialog.component';
 import { IconComponent } from './components/icon/icon.component';
+import { UpdateNoteComponent } from './components/update-note/update-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +40,8 @@ import { IconComponent } from './components/icon/icon.component';
     TakeNoteComponent,
     DisplayNoteComponent,
     NoteComponent,
-    DialogComponent,
-    IconComponent
+    IconComponent,
+    UpdateNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +57,7 @@ import { IconComponent } from './components/icon/icon.component';
    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[UpdateNoteComponent]
 })
 export class AppModule { }

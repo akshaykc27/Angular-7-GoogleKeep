@@ -14,8 +14,16 @@
   <button mat-icon-button class="styles" matToolTip="Archive">
     <img src="../../../assets/images/sharp-archive-24px.svg" >
   </button>
-  <button mat-icon-button class="styles" matToolTip="More">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="styles" matToolTip="More">
     <img src="../../../assets/images/sharp-more_vert-24px.svg" >
+    <mat-menu #menu="matMenu"> 
+      <button mat-menu-item (click)="deleteNote()">
+        <span>Delete Note</span>
+      </button>
+      <button mat-menu-item>
+          <span>Add Label</span>
+        </button>
+    </mat-menu>
   </button>
   
 

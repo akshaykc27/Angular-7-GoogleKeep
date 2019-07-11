@@ -1,13 +1,13 @@
 <div class="center" fxLayoutAlign="center center" fxLayoutGap="10px">
   <div *ngFor="let data of allCards" >
     <mat-card style="margin-top:50px;">
-    <div fxLayout="row">
+    <div fxLayout="row" (click)=openDialog(data) >
       {{data.title}}
     </div>
-    <div class="description" fxLayout="row" >
+    <div class="description" fxLayout="row" (click)=openDialog(data) >
         {{data.description}}
     </div>
-    <app-icon> </app-icon>
+    <app-icon [card]="data" (Event)="eventOccur()"> </app-icon>
     </mat-card>
   </div>
 </div>

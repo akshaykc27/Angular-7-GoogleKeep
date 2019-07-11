@@ -1,5 +1,6 @@
 import { Component, OnInit,Input, Output, EventEmitter  } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import {UpdateNoteComponent} from '../update-note/update-note.component'
 
 
 @Component({
@@ -12,7 +13,7 @@ export class DisplayNoteComponent implements OnInit {
   @Input() text
 
   @Output() displayEvent = new EventEmitter<any>()
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,15 @@ export class DisplayNoteComponent implements OnInit {
   eventOccur()
   {
     this.displayEvent.emit();
+  }
+
+  openDialog(data): void {
+    console.log("in openDialog fuction");
+    this.dialog.open(UpdateNoteComponent,{
+      data
+    })
+
+
   }
  
 }

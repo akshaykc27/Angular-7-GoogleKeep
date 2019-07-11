@@ -13,14 +13,14 @@ export class TakeNoteComponent implements OnInit {
   public title = "";
   public description = "";
 
-  @Output() messageEvent = new EventEmitter<any>()
+  @Output() addNoteEvent = new EventEmitter<any>()
 
   constructor(private service: NoteService) { }
 
   ngOnInit() {
   }
 
-  show = false;
+  public show = false;
   addNotes() {
     console.log('in add notes');
     console.log('title in addnotes', this.title)
@@ -33,7 +33,7 @@ export class TakeNoteComponent implements OnInit {
     this.service.addNotes(note).subscribe(
       response => {
         console.log("response after adding", response);
-        this.messageEvent.emit()
+        this.addNoteEvent.emit()
       },
       error => {
         console.log("error while adding notes", error);

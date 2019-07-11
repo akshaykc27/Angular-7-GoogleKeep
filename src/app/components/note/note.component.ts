@@ -1,23 +1,29 @@
-import { Component, OnInit , Output , EventEmitter } from '@angular/core';
+import { Component, OnInit , Output , EventEmitter} from '@angular/core';
 import {FormControl,Validators} from '@angular/forms';
 import {NoteService} from '../../service/noteServices/note.service';
+import{DataService} from '../../service/dataService/data.service'
 import {} from '@angular/router'
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.scss']
 })
-export class NoteComponent implements OnInit {
+export class NoteComponent implements OnInit{
   public cards;
+  //public changes
   
 
-  constructor(private noteService: NoteService ) { }
+  constructor(private noteService: NoteService, public dataService:DataService ) { }
 
   ngOnInit() {
+    this.dataService.currentData.subscribe(data=>{
+    this.allNotes();
+    })
+    
     this.allNotes();
   }
 
-  allNotes(){
+allNotes(){
         this.noteService.getAllUserNotes().subscribe(data => {
           this.cards = data['response']['data'];
           console.log("response of get all notes ",data);

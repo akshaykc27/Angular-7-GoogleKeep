@@ -1,10 +1,10 @@
 <div fxLayout="row" class="row">
   <div>
-    <input matInput class="text" [formControl]="title">
+    <input matInput class="text" [(ngModel)]="title">
   </div>
 </div>
   <div>
-    <input matInput class="text" [formControl]="description">
+    <input matInput class="text" [(ngModel)]="description">
   </div>
   <div fxLayout="row">
     <button (click)=updateNotes(card) (click)="onNoClick()" mat-button

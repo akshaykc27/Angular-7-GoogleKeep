@@ -17,6 +17,17 @@ export class NoteService {
   getAllUserNotes(){
     console.log("in getAllUserNotes service");
     return this.http.get("findAllNote")
+  }
+
+  updateNotes(data){
+    console.log("in update note service");
+    return this.http.put("updateNote",data)
+    
+  }
+
+ deleteNotes(data){
+    console.log("in update note service",data);
+    return this.http.post("deleteNote",data)
     
   }
 
