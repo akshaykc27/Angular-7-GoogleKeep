@@ -5,6 +5,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import{NoteComponent} from './components/note/note.component';
+import{ArchiveComponent} from './components/archive/archive.component';
+import {TrashComponent} from './components/trash/trash.component'
 
 const routes: Routes = [
   {
@@ -35,6 +37,14 @@ const routes: Routes = [
       {
         path:'note',
         component: NoteComponent
+      },
+      {
+        path:'archive',
+        component : ArchiveComponent
+      },
+      {
+        path:'trash',
+        component : TrashComponent
       }
 
     ]

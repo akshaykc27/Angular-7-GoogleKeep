@@ -1,0 +1,13 @@
+<div fxLayout="row wrap" fxLayoutGap="6px" fxLayoutAlign="center center">
+    <div *ngFor="let data of notes">
+      <div *ngIf="!data.isArchive && data.isTrash">
+        <mat-card fxFlex="100" style="margin-top:50px;">
+        <div class="row">
+          {{data.title}}
+        </div>
+        {{data.description}}
+        <app-icon></app-icon>
+        </mat-card>
+      </div>
+    </div>
+  </div>

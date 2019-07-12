@@ -31,5 +31,19 @@ export class NoteService {
     
   }
 
+  isArchive(data){
+    console.log("in archive note service",data);
+    return this.http.post("archive",data)
+  }
+
+  isTrash(data){
+    console.log("in trash note service",data);
+    return this.http.post("trash",data)
+  }
+ 
+  changeColor(data){
+    console.log("in change color note service",data);
+    return this.http.put("changeColor",data)
+  }
 
 }

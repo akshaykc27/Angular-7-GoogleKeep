@@ -30,6 +30,8 @@ import { DisplayNoteComponent } from './components/display-note/display-note.com
 import { NoteComponent } from './components/note/note.component';
 import { IconComponent } from './components/icon/icon.component';
 import { UpdateNoteComponent } from './components/update-note/update-note.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,9 @@ import { UpdateNoteComponent } from './components/update-note/update-note.compon
     DisplayNoteComponent,
     NoteComponent,
     IconComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    ArchiveComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,

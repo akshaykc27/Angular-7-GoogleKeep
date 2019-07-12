@@ -1,30 +1,51 @@
-<div class="icon" fxLayout="row" fxLayoutGap="1.5px" >
-  <button mat-icon-button class="reminder" >
-    <img src="../../../assets/images/sharp-notification_important-24px.svg" matToolTip="Remind me" >
+<div class="icon" fxLayout="row" fxLayoutGap="1.5px">
+  <button mat-icon-button class="reminder">
+    <img src="../../../assets/images/sharp-notification_important-24px.svg" matToolTip="Remind me">
   </button>
+
   <button mat-icon-button class="styles" matToolTip="Add Collaborator">
-    <img src="../../../assets/images/sharp-person_add-24px.svg" >
+    <img src="../../../assets/images/sharp-person_add-24px.svg">
   </button>
-  <button mat-icon-button class="styles" matToolTip="Change colour">
-    <img src="../../../assets/images/sharp-color_lens-24px.svg" >
-  </button>
-  <button mat-icon-button class="styles" matToolTip="Add Image">
-    <img src="../../../assets/images/sharp-add_photo_alternate-24px.svg" >
-  </button>
-  <button mat-icon-button class="styles" matToolTip="Archive">
-    <img src="../../../assets/images/sharp-archive-24px.svg" >
-  </button>
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="styles" matToolTip="More">
-    <img src="../../../assets/images/sharp-more_vert-24px.svg" >
-    <mat-menu #menu="matMenu"> 
-      <button mat-menu-item (click)="deleteNote()">
-        <span>Delete Note</span>
-      </button>
-      <button mat-menu-item>
-          <span>Add Label</span>
-        </button>
+
+  <button mat-icon-button class="styles" [matMenuTriggerFor]="colorMenu" matToolTip="Change colour" style="margin-top:15px;">
+    <img src="../../../assets/images/sharp-color_lens-24px.svg">
+    <mat-menu #colorMenu="matMenu" yPosition="above">
+      <table>
+        <tr *ngFor="let row of colorArray">
+          <td *ngFor="let col of row">
+            <div class="colorButton" [ngStyle]="{'background-color': col.color}" (click)="changeColor(col.color,card)">
+            </div>
+          </td>
+        </tr>
+      </table>
     </mat-menu>
   </button>
-  
+
+  <button mat-icon-button class="styles" matToolTip="Add Image">
+    <img src="../../../assets/images/sharp-add_photo_alternate-24px.svg">
+  </button>
+
+  <button mat-icon-button class="styles" matToolTip="Archive" (click)="isArchive()">
+    <img src="../../../assets/images/sharp-archive-24px.svg">
+  </button>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="styles" matToolTip="More">
+    <img src="../../../assets/images/sharp-more_vert-24px.svg">
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span>Add Label</span>
+      </button>
+
+      <button mat-menu-item (click)="moveToTrash()">
+        <span>Move to Trash</span>
+      </button>
+
+      <button mat-menu-item (click)="deleteNote()">
+        <span>Delete Note Forever</span>
+      </button>
+
+    </mat-menu>
+  </button>
+
 
 </div>
