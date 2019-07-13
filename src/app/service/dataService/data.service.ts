@@ -10,10 +10,8 @@ currentData=this.source.asObservable();
 
 
   constructor() {console.log("currentData",this.currentData); }
-send(){
-  
-  
-this.source.next('');
+send(message:string){
+this.source.next(message);
 }
 
 }

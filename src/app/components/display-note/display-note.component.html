@@ -1,5 +1,5 @@
 <div class="center" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <div *ngFor="let data of allCards">
+  <div *ngFor="let data of allCards | filter:search" >
     <div *ngIf="!data.isTrash && !data.isArchive">
     <mat-card [ngStyle]="{'background-color': data.color}"   style="margin-top:50px;">
     <div fxLayout="row" (click)=openDialog(data) >
@@ -8,7 +8,7 @@
     <div class="description" fxLayout="row" (click)=openDialog(data) >
         {{data.description}}
     </div>
-    <app-icon [card]="data" (Event)="eventOccur()"> </app-icon>
+    <app-icon [card]="data" (Event)="eventOccur()" class="showOn"> </app-icon>
     </mat-card>
   </div>
 </div>

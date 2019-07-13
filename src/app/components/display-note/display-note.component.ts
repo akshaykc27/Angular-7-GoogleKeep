@@ -10,10 +10,14 @@ import {UpdateNoteComponent} from '../update-note/update-note.component'
 })
 export class DisplayNoteComponent implements OnInit {
   @Input() allCards=[];
-  @Input() text
+  @Input() text;
+  @Input() search;
 
   @Output() displayEvent = new EventEmitter<any>()
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {
+    console.log("in display note c",this.search);
+    
+   }
 
   ngOnInit() {
   }

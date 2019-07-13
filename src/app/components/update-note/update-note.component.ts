@@ -14,7 +14,7 @@ export class UpdateNoteComponent implements OnInit {
 
   constructor(public dialogRef:MatDialogRef<UpdateNoteComponent>,
     public noteService: NoteService,
-    @Inject(MAT_DIALOG_DATA) public note,
+    @Inject(MAT_DIALOG_DATA) public note, 
     public dataService:DataService) { 
       this.title = note.title;
       this.description = note.description;
@@ -37,7 +37,7 @@ export class UpdateNoteComponent implements OnInit {
     this.noteService.updateNotes(note).subscribe(
       response =>{
         console.log("resposne",response);
-        this.dataService.send()
+        this.dataService.send("")
       },
       error =>{
         console.log("error while updating notes",error);

@@ -59,7 +59,7 @@
     margin-top:1px;
     padding: 30px;
     font-size: 80%;
-    font-family:'Times-New-Roman'
+    font-family:'Times-New-Roman';
 }
 .divider{
     margin-top:1px;
@@ -77,3 +77,6 @@
   ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
     background-color:transparent
   }
+.is-active {
+    background-color: red;
+}

@@ -8,3 +8,9 @@
 .description{
     margin-top: 10px;
 }
+.showOn{
+    visibility: hidden;
+}
+:hover .showOn{
+    visibility: visible;
+}
