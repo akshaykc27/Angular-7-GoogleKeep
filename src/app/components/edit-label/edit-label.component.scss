@@ -1,0 +1,22 @@
+.container {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center
+}
+
+.title{
+    display:flex;
+   font-weight: bold;
+    margin-left: 2%;
+    margin-top:2%;
+}
+.displaylabels{
+    margin-top: 3%;
+    justify-content: space-between;
+    align-items: center;
+}
+.close{
+    justify-content: flex-end
+}

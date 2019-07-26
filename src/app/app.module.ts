@@ -34,6 +34,7 @@ import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { SearchComponent } from './components/search/search.component'
 import { SearchPipe } from './pipe/search.pipe';
+import { EditLabelComponent } from './components/edit-label/edit-label.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { SearchPipe } from './pipe/search.pipe';
     ArchiveComponent,
     TrashComponent,
     SearchComponent,
-    SearchPipe
+    SearchPipe,
+    EditLabelComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,6 @@ import { SearchPipe } from './pipe/search.pipe';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [UpdateNoteComponent]
+  entryComponents: [UpdateNoteComponent,EditLabelComponent]
 })
 export class AppModule { }

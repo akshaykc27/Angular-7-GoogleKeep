@@ -15,7 +15,7 @@ export class DisplayNoteComponent implements OnInit {
 
   @Output() displayEvent = new EventEmitter<any>()
   constructor(public dialog: MatDialog) {
-    console.log("in display note c",this.search);
+    console.log("in display note ",this.search);
     
    }
 

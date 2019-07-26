@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Edit Labels</h1>
+<div mat-dialog-content fxLayout="column">
+  <mat-form-field>
+    <div fxLayout="row" fxLayoutGap="3px">
+        <mat-icon>close</mat-icon>
+        <input matInput placeholder="Create new label" [(ngModel)]="labelName">
+        <mat-icon (click)="addLabel()">done</mat-icon>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="5px" *ngFor="let label of allLabels" class="displaylabels">
+      <mat-icon>label</mat-icon>
+      <p> {{label.labelName}}</p>
+      <mat-icon>edit</mat-icon>
+    </div>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="close">
+  <button mat-button (click)="onNoClick()">Close</button>
+ </div>

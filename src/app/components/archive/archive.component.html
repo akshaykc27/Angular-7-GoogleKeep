@@ -6,7 +6,7 @@
         {{data.title}}
       </div>
       {{data.description}}
-      <app-icon></app-icon>
+      <app-icon [card]="data" (Event)="eventOccur()"></app-icon>
       </mat-card>
     </div>
   </div>

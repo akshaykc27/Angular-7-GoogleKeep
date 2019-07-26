@@ -5,13 +5,15 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-private source=new BehaviorSubject('default message');
-currentData=this.source.asObservable();
+  private source = new BehaviorSubject('default message');
+  currentData = this.source.asObservable();
 
+  constructor() {
+    console.log("currentData", this.currentData);
+  }
 
-  constructor() {console.log("currentData",this.currentData); }
-send(message:string){
-this.source.next(message);
-}
+  send(message: string) {
+    this.source.next(message);
+  }
 
 }

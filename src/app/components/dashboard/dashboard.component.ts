@@ -3,6 +3,8 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataService } from '../../service/dataService/data.service';
 import { NoteService } from '../../service/noteServices/note.service';
+import { EditLabelComponent } from '../edit-label/edit-label.component'
+
 
 @Component({
   selector: 'app-dashboard',
@@ -14,14 +16,17 @@ export class DashboardComponent implements OnInit {
   public firstname = localStorage.getItem("firstname");
   public lastname = localStorage.getItem('lastname');
   public firstLetter = this.firstname.charAt(0).toUpperCase();
+  public allLabels;
 
 
   constructor(public router: Router,
-     public dataService: DataService,
-     public noteService: NoteService
-     ) { }
+    public dataService: DataService,
+    public noteService: NoteService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
+    this.getAllLabels()
   }
   openNotes() {
     this.router.navigate(['dashboard/note'])
@@ -39,8 +44,23 @@ export class DashboardComponent implements OnInit {
   startSearch() {
     this.router.navigate(['dashboard/search'])
   }
-  lookFor(){
+  lookFor() {
     this.dataService.send(this.search)
+  }
+  getAllLabels() {
+    this.noteService.getALlLabels().subscribe(data => {
+      console.log("while getting all labels", data);
+      this.allLabels = data;
+    }, error => {
+      console.log("error while getting all labels", error);
+    })
+  }
+
+  editLabels(data): void {
+    console.log("data in editLabels",data);
+    this.dialog.open( EditLabelComponent ,{
+      data
+    })
   }
 }
 

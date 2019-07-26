@@ -11,7 +11,7 @@ dbUrl=environment.url
   post(url,data){
     console.log("data in http service",data)
     console.log(url)
-    console.log("token fro local storage",localStorage.getItem("token"));
+    console.log("token from local storage",localStorage.getItem("token"));
     
     var httpOptions = {
       headers: new HttpHeaders({

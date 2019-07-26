@@ -11,14 +11,17 @@
       <div fxLayout="row">
         <mat-icon>
           search
-        </mat-icon> <input type="text" [(ngModel)]="search" (keyup)="lookFor()" (click)="startSearch()" autocomplete="off" matInput class="input" placeholder="Search">
+        </mat-icon> <input type="text" [(ngModel)]="search" (keyup)="lookFor()" (click)="startSearch()"
+          autocomplete="off" matInput class="input" placeholder="Search">
       </div>
     </mat-form-field>
-    <button mat-icon-button matTooltip="Refresh"> 
+    <button mat-icon-button matTooltip="Refresh">
       <mat-icon class="refresh">refresh</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="List"><img class="list" src="../../../assets/images/baseline-list-24px.svg"></button>
-    <button mat-icon-button matTooltip="Settings"><img class="settings" src="../../../assets//images/baseline-settings-20px.svg"></button>
+    <button mat-icon-button matTooltip="List"><img class="list"
+        src="../../../assets/images/baseline-list-24px.svg"></button>
+    <button mat-icon-button matTooltip="Settings"><img class="settings"
+        src="../../../assets//images/baseline-settings-20px.svg"></button>
     <button mat-icon-button matTooltip="Apps">
       <mat-icon class="apps">apps</mat-icon>
     </button>
@@ -33,32 +36,41 @@
   <!------------------------ side Navigator  --------------------->
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #snav [mode]="side" >
-      <mat-nav-list >
-        <a mat-list-item routerLinkActive="is-active" (click)="openNotes()" fxLayout="row" fxLayoutGap="10px">
-          <mat-icon > lightbulb_outline </mat-icon>
-          <span  class="notes">Notes</span>
+    <mat-sidenav #snav [mode]="side">
+      <mat-nav-list>
+        <a mat-list-item (click)="openNotes()" fxLayout="row" fxLayoutGap="10px">
+          <mat-icon> lightbulb_outline </mat-icon>
+          <span class="notes">Notes</span>
         </a>
-        <a mat-list-item routerLinkActive="is-active" class="link" (click)="openReminders()">
+        <a mat-list-item  class="link" (click)="openReminders()">
           <mat-icon>notifications_none</mat-icon>
           <span class="reminders">Reminders</span>
         </a>
-        <div class="divider"><mat-divider></mat-divider></div>
-        
-        <p class="labels">LABELS</p>
+        <div class="divider">
+          <mat-divider></mat-divider>
+        </div>
 
-        <a mat-list-item routerLinkActive="is-active" class="link" (click)="editLabels()">
-          <mat-icon  class="icon"><img src="../../../assets/images/outline-edit-24px.svg" ></mat-icon>
+        <p class="labels">LABELS</p>
+        <div *ngFor= "let label of allLabels" class="alllabelsDisplay" >
+              <div class="iconLabel" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="25px">
+                <mat-icon class="labelIcon"> label_outlined </mat-icon> 
+                <p class="">{{label.labelName}}</p>
+              </div>
+        </div>
+
+
+        <a mat-list-item  class="link" (click)="editLabels(allLabels)">
+          <mat-icon class="icon"><img src="../../../assets/images/outline-edit-24px.svg"></mat-icon>
           <span class="editLabels">Edit labels</span>
         </a>
 
         <div class="divider">
-            <mat-divider></mat-divider>
-          </div>
+          <mat-divider></mat-divider>
+        </div>
 
-        <a mat-list-item routerLinkActive="is-active" class="link" (click)="openArchive()">
+        <a mat-list-item class="link" (click)="openArchive()">
           <mat-icon class="icon">
-              <img src="../../../assets/images/outline-archive-24px.svg">
+            <img src="../../../assets/images/outline-archive-24px.svg">
           </mat-icon>
           <span class="archives">Archives</span>
         </a>
@@ -67,14 +79,12 @@
             <img src="../../../assets/images/outline-delete-24px.svg">
           </mat-icon>
           <span class="trash">Trash</span>
-        </a>  
-
+        </a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content> 
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
-
   </mat-sidenav-container>
 
 </div>

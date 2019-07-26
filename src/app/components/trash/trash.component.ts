@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../../service/noteServices/note.service'
+import { _MatTabHeaderMixinBase } from '@angular/material/tabs/typings/tab-header';
 
 @Component({
   selector: 'app-trash',
@@ -27,5 +28,7 @@ export class TrashComponent implements OnInit {
       
     })
   }
-
+eventOccur() {
+  this.getTrasheddNotes();
+}
 }

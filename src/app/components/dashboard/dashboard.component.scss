@@ -56,10 +56,22 @@
 
 }
 .labels{
-    margin-top:1px;
-    padding: 30px;
+    margin-left:12%;
+    margin-bottom: 5px;
     font-size: 80%;
-    font-family:'Times-New-Roman';
+    font-family: Arial ;
+    font-weight: bold
+    
+}
+.alllabelsDisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.iconLabel{
+    display: flex;
+    margin-left: 12%;
 }
 .divider{
     margin-top:1px;

@@ -27,4 +27,7 @@ export class ArchiveComponent implements OnInit {
       
     })
   }
+  eventOccur() {
+    this.getArchivedNotes();
+  }
 }
