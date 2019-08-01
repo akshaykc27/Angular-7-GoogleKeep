@@ -35,6 +35,8 @@ import { TrashComponent } from './components/trash/trash.component';
 import { SearchComponent } from './components/search/search.component'
 import { SearchPipe } from './pipe/search.pipe';
 import { EditLabelComponent } from './components/edit-label/edit-label.component';
+import { CropimageComponent } from './components/cropimage/cropimage.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,8 @@ import { EditLabelComponent } from './components/edit-label/edit-label.component
     TrashComponent,
     SearchComponent,
     SearchPipe,
-    EditLabelComponent
+    EditLabelComponent,
+    CropimageComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,11 +66,10 @@ import { EditLabelComponent } from './components/edit-label/edit-label.component
     BrowserAnimationsModule, FlexLayoutModule,
     FormsModule, ReactiveFormsModule, HttpClientModule,
     MatSnackBarModule, MatIconModule, MatMenuModule, MatDividerModule, MatSidenavModule,
-    MatListModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule
-
+    MatListModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule,ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [UpdateNoteComponent,EditLabelComponent]
+  entryComponents: [UpdateNoteComponent,EditLabelComponent,CropimageComponent]
 })
 export class AppModule { }

@@ -25,10 +25,31 @@
     <button mat-icon-button matTooltip="Apps">
       <mat-icon class="apps">apps</mat-icon>
     </button>
-    <button mat-mini-fab [matMenuTriggerFor]="Menu" color="primary" class="menu">{{firstLetter}}</button>
+    <!-- <button mat-icon-button [matMenuTriggerFor]="Menu" aria-label="Example icon-button with a menu"
+      (click)="onFileUpload($event)">
+      <img mat-card-avatar src={{image}}>
+    </button> -->
+    <div>
+      <button mat-mini-fab
+        [ngStyle]="{'background-image':'url('+image+')','background-size':'cover','margin-top':'22%'}"
+        [matMenuTriggerFor]="Menu" color="primary" class="profilePic">
+      </button>
+    </div>
     <mat-menu #Menu="matMenu">
-      <button mat-mini-fab color="primary">{{firstLetter}}</button>
-      <span class="accountName">{{firstname}} {{lastname}}</span>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <button mat-mini-fab (click)="$event.stopPropagation()"
+          [ngStyle]="{'background-image':'url('+image+')','background-size':'cover'}" (click)="selectFile.click()">
+
+          <input style="display:none" (click)="$event.stopPropagation()" class="image" type="file"
+            (change)="onFileUpload($event)" #selectFile>
+        </button>
+
+        <div fxLayout="row" class="row" fxLayoutGap='3%' >
+          <div>{{firstname}}</div>
+          <div>{{lastname}}</div>
+        </div>
+
+      </div>
     </mat-menu>
   </div>
   <mat-divider></mat-divider>
@@ -42,7 +63,7 @@
           <mat-icon> lightbulb_outline </mat-icon>
           <span class="notes">Notes</span>
         </a>
-        <a mat-list-item  class="link" (click)="openReminders()">
+        <a mat-list-item class="link" (click)="openReminders()">
           <mat-icon>notifications_none</mat-icon>
           <span class="reminders">Reminders</span>
         </a>
@@ -51,15 +72,15 @@
         </div>
 
         <p class="labels">LABELS</p>
-        <div *ngFor= "let label of allLabels" class="alllabelsDisplay" >
-              <div class="iconLabel" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="25px">
-                <mat-icon class="labelIcon"> label_outlined </mat-icon> 
-                <p class="">{{label.labelName}}</p>
-              </div>
+        <div *ngFor="let label of allLabels" class="alllabelsDisplay">
+          <div class="iconLabel" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="25px">
+            <mat-icon class="labelIcon"> label_outlined </mat-icon>
+            <p class="">{{label.labelName}}</p>
+          </div>
         </div>
 
 
-        <a mat-list-item  class="link" (click)="editLabels(allLabels)">
+        <a mat-list-item class="link" (click)="editLabels(allLabels)">
           <mat-icon class="icon"><img src="../../../assets/images/outline-edit-24px.svg"></mat-icon>
           <span class="editLabels">Edit labels</span>
         </a>

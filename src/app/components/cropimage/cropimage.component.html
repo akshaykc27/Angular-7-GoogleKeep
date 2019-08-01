@@ -1,0 +1,6 @@
+<div class="image">>
+    <image-cropper [imageChangedEvent]="data" [maintainAspectRatio]="true" [aspectRatio]="4 / 4" [resizeToWidth]=" "
+        format="png" (imageCropped)="imageCropped($event)">
+    </image-cropper>
+    <button mat-flat-button (click)="uploadPic()" > Upload new profile pic </button>
+</div>

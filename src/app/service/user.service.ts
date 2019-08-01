@@ -22,4 +22,9 @@ export class UserService {
      console.log("in forgotPassword user service");
      return this.http.post("forgotPassword",data);
    }
+
+   setProfilePic(data) {
+     console.log("in setProfilePic function");
+     return this.http.post("setProfilePic",data);
+   }
 }
