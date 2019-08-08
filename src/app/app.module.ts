@@ -16,7 +16,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,6 +36,9 @@ import { SearchPipe } from './pipe/search.pipe';
 import { EditLabelComponent } from './components/edit-label/edit-label.component';
 import { CropimageComponent } from './components/cropimage/cropimage.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,10 +68,13 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     BrowserAnimationsModule, FlexLayoutModule,
     FormsModule, ReactiveFormsModule, HttpClientModule,
     MatSnackBarModule, MatIconModule, MatMenuModule, MatDividerModule, MatSidenavModule,
-    MatListModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule,ImageCropperModule
+    MatListModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule,
+    ImageCropperModule, MatDatepickerModule ,MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [UpdateNoteComponent,EditLabelComponent,CropimageComponent]
+  entryComponents: [UpdateNoteComponent, EditLabelComponent, CropimageComponent]
 })
 export class AppModule { }

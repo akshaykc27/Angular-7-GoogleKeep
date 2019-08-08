@@ -1,13 +1,46 @@
 <div class="icon" fxLayout="row" fxLayoutGap="1.5px">
-  <button mat-icon-button class="reminder">
-    <img src="../../../assets/images/sharp-notification_important-24px.svg" matToolTip="Remind me">
+  <button mat-icon-button [matMenuTriggerFor]="reminderMenu" class="reminder"
+    style="margin-top:15px;cursor:pointer">
+  <img src="../../../assets/images/sharp-notification_important-24px.svg" matToolTip="Remind me">
+  <mat-menu #reminderMenu="matMenu" yposition="above">
+    <div *ngIf="show==false" fxLayout="column">
+      <div class="heading">Reminder :</div>
+      <button mat-menu-item fxLayoutAlign="space-between" (click)="remindMeToday()">
+        <span class="day"> Later today </span>
+        <span class="time"> 8:00 PM </span>
+      </button>
+      <button mat-menu-item fxLayoutAlign="space-between" (click)="remindMeTomorrow()">
+        <span class="day">Tomorrow</span>
+        <span class="Ttime">8:00AM</span>
+      </button>
+      <button mat-menu-item fxLayoutGap="30px" (click)="remindNextWeek()" >
+        <span class="day">Next week</span>
+        <span class="Wtime">Mon,8:00AM</span>
+      </button>
+      <button mat-menu-item (click)="$event.stopPropagation()">
+        <div fxLayout="row">
+        <img class="schedule" src="../../../assets/images/outline-schedule-24px.svg">
+        <span class="detail" >Pick date & time</span></div> 
+      </button>
+      <div>
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-menu>
   </button>
 
   <button mat-icon-button class="styles" matToolTip="Add Collaborator">
     <img src="../../../assets/images/sharp-person_add-24px.svg">
   </button>
 
-  <button mat-icon-button class="styles" [matMenuTriggerFor]="colorMenu" matToolTip="Change colour" style="margin-top:15px;">
+  <button mat-icon-button class="styles" [matMenuTriggerFor]="colorMenu" matToolTip="Change colour"
+    style="margin-top:15px;">
     <img src="../../../assets/images/sharp-color_lens-24px.svg">
     <mat-menu #colorMenu="matMenu" yPosition="above">
       <table>

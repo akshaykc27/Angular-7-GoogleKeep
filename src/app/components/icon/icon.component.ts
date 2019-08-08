@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from '../../service/noteServices/note.service'
-
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -11,6 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class IconComponent implements OnInit {
   @Input() card;
   public colorArray = [[], [], []];
+  public show = false;
+  firstDate: Date;
 
   constructor(public service: NoteService,
     public snackBar: MatSnackBar) { }
@@ -45,7 +45,6 @@ export class IconComponent implements OnInit {
       error => {
         console.log("error in delete Notes ", error);
       })
-
   }
 
   moveToTrash() {
@@ -82,23 +81,39 @@ export class IconComponent implements OnInit {
     })
   }
 
-  changeColor(color,card) {
+  changeColor(color, card) {
     console.log("in changeColor note function")
     console.log("data in card", this.card);
 
     const note = {
-      noteId : this.card['_id'],
+      noteId: this.card['_id'],
       color
     }
 
-    this.service.changeColor(note).subscribe( response => {
+    this.service.changeColor(note).subscribe(response => {
       console.log("response in isArchive", response);
       this.Event.emit()
-      
-    },error => {
-      console.log("error while changing color",error);
-      
+
+    }, error => {
+      console.log("error while changing color", error);
+
     })
   }
 
+  remindMeToday() {
+    let date = new Date();
+    var time = date.getHours + ":" + date.getMinutes + ":" + date.getSeconds;
+    this.firstDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 20, 0, 0, 0);
+    console.log("this.firstdate",this.firstDate);
+    const object = {
+      'noteId': this.card['_id'],
+      'date': this.firstDate
+    }
+    this.service.setReminder(object).subscribe(data => {
+      console.log("data in setReminnder function ", data);
+      this.Event.emit();
+    }, error => {
+      console.log("error in setReminder function", error);
+    });
+  }
 }

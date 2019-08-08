@@ -27,17 +27,12 @@ export class CropimageComponent implements OnInit {
   }
 
   uploadPic() {
-    //   if(this.croppedImage != null ){
-    //     this.dialogRef.close(this.croppedImage);
-    //   }
-    //   console.log("inside uploadPic function",this.croppedImage);
-    //   this.userService.setProfilePic(this.croppedImage);
-
-    const uploadData= "file"+this.croppedImage
+    const uploadData= new FormData();
+    uploadData.append('fundoo',this.croppedImage);
 
     this.userService.setProfilePic(uploadData).subscribe(response => {
       console.log("response in add image",response);
-      this.dialogRef.close();
+      this.dialogRef.close(response);
     })
   }
 }

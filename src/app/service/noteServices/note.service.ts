@@ -55,4 +55,9 @@ export class NoteService {
     //let data1= JSON.parse(data);
     return this.http.post('addLabel',data)
   }
+
+  setReminder(data) {
+    console.log("in set reminder function", data);
+    return this.http.post("setReminder", data);
+  }
 }

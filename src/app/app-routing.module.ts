@@ -7,7 +7,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoteComponent } from './components/note/note.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
-import { SearchComponent } from './components/search/search.component'
+import { SearchComponent } from './components/search/search.component';
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service'
 
 const routes: Routes = [
   {
@@ -29,31 +30,37 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "",
         redirectTo: 'note',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        //canActivateChild:[AuthGuard]
       },
       {
         path: 'note',
-        component: NoteComponent
+        component: NoteComponent,
+        //canActivateChild:[AuthGuard]
       },
       {
         path: 'archive',
-        component: ArchiveComponent
+        component: ArchiveComponent,
+        //canActivateChild:[AuthGuard]
       },
       {
         path: 'trash',
-        component: TrashComponent
+        component: TrashComponent,
+        // canActivateChild:[AuthGuard]
       },
       {
         path: 'search',
-        component: SearchComponent
+        component: SearchComponent,
+        //canActivateChild:[AuthGuard]
       }
-
     ]
-  }
+  },
+  //{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({
