@@ -36,31 +36,31 @@ const routes: Routes = [
         path: "",
         redirectTo: 'note',
         pathMatch: 'full',
-        //canActivateChild:[AuthGuard]
+        canActivateChild:[AuthGuard]
       },
       {
         path: 'note',
         component: NoteComponent,
-        //canActivateChild:[AuthGuard]
+        canActivateChild:[AuthGuard]
       },
       {
         path: 'archive',
         component: ArchiveComponent,
-        //canActivateChild:[AuthGuard]
+        canActivateChild:[AuthGuard]
       },
       {
         path: 'trash',
         component: TrashComponent,
-        // canActivateChild:[AuthGuard]
+        canActivateChild:[AuthGuard]
       },
       {
         path: 'search',
         component: SearchComponent,
-        //canActivateChild:[AuthGuard]
+        canActivateChild:[AuthGuard]
       }
     ]
   },
-  //{ path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

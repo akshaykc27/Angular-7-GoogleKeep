@@ -38,7 +38,7 @@ import { CropimageComponent } from './components/cropimage/cropimage.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
-
+import { JwtModule } from "@auth0/angular-jwt";
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +69,15 @@ import {MatNativeDateModule} from '@angular/material';
     FormsModule, ReactiveFormsModule, HttpClientModule,
     MatSnackBarModule, MatIconModule, MatMenuModule, MatDividerModule, MatSidenavModule,
     MatListModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule,
-    ImageCropperModule, MatDatepickerModule ,MatNativeDateModule
+    ImageCropperModule, MatDatepickerModule ,MatNativeDateModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem("token");
+        }
+      }
+    })
+    
   ],
   providers: [
     MatDatepickerModule
