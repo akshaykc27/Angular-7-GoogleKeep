@@ -39,6 +39,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { JwtModule } from "@auth0/angular-jwt";
+import {DragDropModule} from "@angular/cdk/drag-drop"
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,7 @@ import { JwtModule } from "@auth0/angular-jwt";
     FormsModule, ReactiveFormsModule, HttpClientModule,
     MatSnackBarModule, MatIconModule, MatMenuModule, MatDividerModule, MatSidenavModule,
     MatListModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule,
-    ImageCropperModule, MatDatepickerModule ,MatNativeDateModule,
+    ImageCropperModule, MatDatepickerModule ,MatNativeDateModule,DragDropModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

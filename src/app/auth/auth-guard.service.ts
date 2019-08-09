@@ -18,11 +18,11 @@ export class AuthGuardService {
     return true;
   }
 
-  // canActivateChild(): boolean {
-  //   if (!this.authService.isAuthenticated()) {
-  //     this.router.navigate['/login'];
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  canActivateChild(): boolean {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate['/login'];
+      return false;
+    }
+    return true;
+  }
 }

@@ -1,15 +1,16 @@
-<div class="center" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <div *ngFor="let data of allCards | filter:search" >
-    <div *ngIf="!data.isTrash && !data.isArchive">
-    <mat-card [ngStyle]="{'background-color': data.color}"   style="margin-top:50px;">
-    <div fxLayout="row" (click)=openDialog(data) >
-      {{data.title}}
-    </div>
-    <div class="description" fxLayout="row" (click)=openDialog(data) >
-        {{data.description}}
-    </div>
-    <app-icon [card]="data" (Event)="eventOccur()" class="showOn"> </app-icon>
+<div class="center" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <div class="droplist" cdkDropList (cdkDropListDropped)="drop($event)">
+    <mat-card *ngFor="let data of allCards | filter:search"
+      [ngStyle]="{'background-color': data.color}" style="margin:50px;" cdkDrag>
+      <div *ngIf="!data.isTrash && !data.isArchive">
+        <div fxLayout="row" (click)=openDialog(data)>
+          {{data.title}}
+        </div>
+        <div class="description" fxLayout="row" (click)=openDialog(data)>
+          {{data.description}}
+        </div>
+        <app-icon [card]="data" (Event)="eventOccur()" class="showOn"> </app-icon>
+      </div>
     </mat-card>
   </div>
-</div>
 </div>
