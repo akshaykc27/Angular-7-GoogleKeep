@@ -71,6 +71,12 @@ export class DashboardComponent implements OnInit {
     this.openCropPicComp(event);
   }
 
+  logout() {
+    this.router.navigate(['login']);
+    sessionStorage.clear();
+    localStorage.clear();
+  }
+
   openCropPicComp(data){
     console.log("data in dashboard openCropPic ",data);
     

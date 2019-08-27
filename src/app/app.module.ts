@@ -39,7 +39,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { JwtModule } from "@auth0/angular-jwt";
-import {DragDropModule} from "@angular/cdk/drag-drop"
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop"
     SearchPipe,
     EditLabelComponent,
     CropimageComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

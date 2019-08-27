@@ -13,11 +13,15 @@ export class UserService {
   }
   login(data) {
     console.log("in login user service ");
-    return this.http.post("login", data);
+    return this.http.postLogin("login", data);
   }
   forgotPassword(data) {
     console.log("in forgotPassword user service");
     return this.http.post("forgotPassword", data);
+  }
+  resetPassword(data,token) {
+    console.log("in reset password user service");
+    return this.http.postResetPassword("resetPassword",data,token);
   }
   setProfilePic(data) {
     console.log("in setProfilePic function", data);

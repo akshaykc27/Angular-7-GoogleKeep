@@ -41,6 +41,7 @@ forgotPassword()
       this.snackBar.open("ERROR!!", "ok", { duration: 5000 });
     }
   )
+  this.router.navigate(["resetPassword"]);
 }
 login(){
   this.router.navigate(["login"])

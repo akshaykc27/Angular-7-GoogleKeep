@@ -44,11 +44,16 @@
             (change)="onFileUpload($event)" #selectFile>
         </button>
 
-        <div fxLayout="row" class="row" fxLayoutGap='3%'>
-          <div>{{firstname}}</div>
-          <div>{{lastname}}</div>
-        </div>
+        <div fxLayout="column" fxLayoutGap="5%">
+          <div fxLayout="row" class="row" fxLayoutGap='3%'>
+            <div>{{firstname}}</div>
+            <div>{{lastname}}</div>
+          </div>
 
+          <div>
+            <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+          </div>
+        </div>
       </div>
     </mat-menu>
   </div>

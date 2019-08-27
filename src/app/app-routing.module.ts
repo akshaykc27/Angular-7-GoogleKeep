@@ -9,6 +9,7 @@ import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { SearchComponent } from './components/search/search.component';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service'
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -28,9 +29,14 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
+    path : 'resetPassword/:token',
+    component : ResetPasswordComponent
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivateChild: [AuthGuard],
+    canActivate:[AuthGuard],
+    // canActivateChild: [AuthGuard],
     children: [
       {
         path: "",

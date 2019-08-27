@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         response => {
           this.result= response;
           console.log("response in login", response);
-          localStorage.setItem('token',this.result.token.token);
+          sessionStorage.setItem('token',this.result.token.token);
           localStorage.setItem('userId',this.result.message[0]._id);
           localStorage.setItem('firstname',this.result.message[0].firstname);
           localStorage.setItem('lastname',this.result.message[0].lastname);

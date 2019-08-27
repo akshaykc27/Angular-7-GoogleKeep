@@ -8,6 +8,19 @@ export class HttpService {
   dbUrl = environment.url
   constructor(private http: HttpClient) { }
 
+  postLogin(url, data) {
+    console.log("data in http service", data)
+    console.log(url)
+    console.log("token from local storage", localStorage.getItem("token"));
+
+    var httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.post(this.dbUrl + url, data, httpOptions);
+  }
+
   post(url, data) {
     console.log("data in http service", data)
     console.log(url)
@@ -16,7 +29,7 @@ export class HttpService {
     var httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
-        token: localStorage.getItem("token")
+        token: sessionStorage.getItem("token")
       })
     };
     return this.http.post(this.dbUrl + url, data, httpOptions);
@@ -25,7 +38,7 @@ export class HttpService {
   get(url) {
     const httpOptions = {
       headers: new HttpHeaders({
-        token: localStorage.getItem('token'),
+        token: sessionStorage.getItem('token'),
         'Content-Type': "application/json"
       })
     }
@@ -35,10 +48,21 @@ export class HttpService {
   put(url, data) {
     const httpOptions = {
       headers: new HttpHeaders({
-        token: localStorage.getItem('token'),
+        token: sessionStorage.getItem('token'),
       })
     }
     return this.http.put(this.dbUrl + url, data, httpOptions)
+  }
+
+  postResetPassword(url,data,token){
+    
+    const httpOptions = { 
+      headers : new HttpHeaders({
+        token: token,
+        'Content-Type': "application/json"
+      })
+    }
+    return this.http.post(this.dbUrl + url+"/:"+token, data, httpOptions);
   }
 
 }
