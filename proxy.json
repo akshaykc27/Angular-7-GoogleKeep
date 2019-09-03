@@ -1,0 +1,6 @@
+{
+    "auth/google": {
+      "target": "http://localhost:4000/auth/google",
+      "secure": false
+    }
+  }

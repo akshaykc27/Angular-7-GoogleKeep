@@ -69,4 +69,14 @@ export class LoginComponent implements OnInit {
   register() {
     this.router.navigate(["register"])
   }
+
+  googleLogin(){
+    this.service.googleLogin().subscribe(data => {
+      console.log("in google login",data);
+    
+    },error => {
+      console.log("error in google login",error);
+    })
+    //this.router.navigate(['google'])
+  }
 }

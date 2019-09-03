@@ -27,5 +27,9 @@ export class UserService {
     console.log("in setProfilePic function", data);
     return this.http.put("setProfilePic", data);
   }
+  googleLogin(){ 
+    console.log("in setProfilePic function");
+    return this.http.postGoogle("auth/google"); 
+  }
   
 }

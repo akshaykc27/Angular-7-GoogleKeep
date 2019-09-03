@@ -35,11 +35,31 @@ export class HttpService {
     return this.http.post(this.dbUrl + url, data, httpOptions);
   }
 
-  get(url) {
+  postGoogle(url) {
+    console.log("data in http service")
+    console.log(url)
+   // console.log("token from local storage", localStorage.getItem("token"));
+
+    var httpOptions = {
+      headers: new HttpHeaders({
+
+        "Content-Type": "application/x-www-form-urlencoded",
+         "Access-Control-Allow-Origin":"http://localhost:4000",
+         //"Origin" : "http://localhost:4000/auth/google"
+         
+        //token: sessionStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.dbUrl + url, httpOptions)
+  }
+
+  get(url) { 
     const httpOptions = {
       headers: new HttpHeaders({
         token: sessionStorage.getItem('token'),
-        'Content-Type': "application/json"
+        'Content-Type': "text/html",
+        'Access-Control-Allow-Origin':'*',
+
       })
     }
     return this.http.get(this.dbUrl + url, httpOptions)
